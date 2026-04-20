@@ -13,6 +13,7 @@
   "led_strips": {
     "LSE": {
       "em_number": "79230",
+      "led_type": "Replaceable Flex Strips (w/ Diffused Extrusion)",
       "roll_length": "5m",
       "max_run_m": 5,
       "color_temp": "3000K",
@@ -34,6 +35,7 @@
     },
     "LHE": {
       "em_number": "79245",
+      "led_type": "Replaceable Flex Strips (w/ Diffused Extrusion)",
       "roll_length": "5m",
       "max_run_m": 5,
       "color_temp": "3000K",
@@ -55,6 +57,7 @@
     },
     "AVA": {
       "em_number": "81900",
+      "led_type": "Replaceable Flex Strips - Tunable White (w/ Diffused Extrusion)",
       "roll_length": "5m",
       "max_run_m": 5,
       "color_temp": "2700-6000K",
@@ -76,6 +79,7 @@
     },
     "SO": {
       "em_number": "56774",
+      "led_type": "Replaceable Flex Strips (w/ Diffused Extrusion)",
       "roll_length": "5m",
       "max_run_m": 5,
       "color_temp": "3000K",
@@ -97,6 +101,7 @@
     },
     "HO": {
       "em_number": "64334",
+      "led_type": "Replaceable Flex Strips (w/ Diffused Extrusion)",
       "roll_length": "5m",
       "max_run_m": 5,
       "color_temp": "3000K",
@@ -118,6 +123,7 @@
     },
     "LO": {
       "em_number": "82180 / 82181",
+      "led_type": "Replaceable Flex Strips (w/ Diffused Extrusion)",
       "roll_length": "5m / 7.1m",
       "max_run_m": 7.1,
       "color_temp": "3300K",
@@ -139,6 +145,7 @@
     },
     "AVA (OLD)": {
       "em_number": "67500",
+      "led_type": "Replaceable Flex Strips - Tunable White (w/ Diffused Extrusion)",
       "roll_length": "5m",
       "max_run_m": 5,
       "color_temp": "2700-6500K",
@@ -160,6 +167,7 @@
     },
     "CRI95 LSE": {
       "em_number": "83901-30K",
+      "led_type": "Replaceable Flex Strips CRI95 (w/ Diffused Extrusion)",
       "roll_length": "30m",
       "max_run_m": 5,
       "color_temp": "3000K",
@@ -185,6 +193,7 @@
     },
     "CRI95 LHE": {
       "em_number": "83911-30K",
+      "led_type": "Replaceable Flex Strips CRI95 (w/ Diffused Extrusion)",
       "roll_length": "30m",
       "max_run_m": 5,
       "color_temp": "3000K",
@@ -210,6 +219,7 @@
     },
     "CRI95 AVA": {
       "em_number": "83930",
+      "led_type": "Replaceable Flex Strips CRI95 - Tunable White (w/ Diffused Extrusion)",
       "roll_length": "30m",
       "max_run_m": 5,
       "color_temp": "2700-6500K",
@@ -231,6 +241,7 @@
     },
     "COB LO": {
       "em_number": "83925-33K",
+      "led_type": "COB LED Flex Strips",
       "roll_length": "30m",
       "max_run_m": 7.6,
       "color_temp": "3300K",
@@ -256,6 +267,7 @@
     },
     "COB LO AVA": {
       "em_number": "83935",
+      "led_type": "COB LED Flex Strips - Tunable White",
       "roll_length": "30m",
       "max_run_m": 5,
       "color_temp": "2700-6500K",
@@ -277,6 +289,7 @@
     },
     "DIM TO WARM": {
       "em_number": "84028",
+      "led_type": "Replaceable Flex Strips - Dim to Warm (w/ Diffused Extrusion)",
       "roll_length": "30m",
       "max_run_m": 5,
       "color_temp": "1800-3000K",
@@ -298,6 +311,7 @@
     },
     "COB LO DIM TO WARM": {
       "em_number": "84029",
+      "led_type": "COB LED Flex Strips - Dim to Warm",
       "roll_length": "30m",
       "max_run_m": 5,
       "color_temp": "1800-3000K",

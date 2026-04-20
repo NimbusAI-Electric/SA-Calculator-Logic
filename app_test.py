@@ -322,6 +322,55 @@ with right:
         </div>
         """, unsafe_allow_html=True)
 
+    # ── Power Requirements ─────────────────────────────────────────────────
+    st.markdown('<div class="section-header">Power Requirements (Before Additional Tech Features)</div>', unsafe_allow_html=True)
+    sep = result.voltage_separator
+    vlo = int(result.voltage_lower)
+    vhi = int(result.voltage_upper)
+    st.markdown(f"""
+    <div class="metric-card" style="padding:0.8rem 1.2rem">
+      <div style="display:flex;align-items:center;gap:2rem;flex-wrap:wrap">
+        <div>
+          <div class="label">Voltage</div>
+          <div class="value" style="font-size:1.1rem">{vlo} <span style="color:#6b7280;font-size:0.9rem">{sep}</span> {vhi}<span class="unit">V</span></div>
+        </div>
+        <div style="width:1px;height:2rem;background:#2a2d3e"></div>
+        <div>
+          <div class="label">Amps</div>
+          <div class="value" style="font-size:1.1rem">{result.amps_lower:.2f} <span style="color:#6b7280;font-size:0.9rem">{sep}</span> {result.amps_upper:.2f}<span class="unit">A</span></div>
+        </div>
+        <div style="width:1px;height:2rem;background:#2a2d3e"></div>
+        <div>
+          <div class="label">Input Power</div>
+          <div class="value" style="font-size:1.1rem">{result.input_power_w:.1f}<span class="unit">W</span></div>
+        </div>
+      </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # ── LED Specification ──────────────────────────────────────────────────
+    st.markdown('<div class="section-header">LED Specification</div>', unsafe_allow_html=True)
+    st.markdown(f"""
+    <div class="metric-card" style="padding:0.9rem 1.2rem">
+      <table style="width:100%;border-collapse:collapse;font-size:0.82rem">
+        <tr><td style="color:#6b7280;padding:0.25rem 0.5rem 0.25rem 0;width:40%">LED TYPE</td>
+            <td style="color:#f9fafb;font-weight:600">{result.led_type}</td></tr>
+        <tr><td style="color:#6b7280;padding:0.25rem 0.5rem 0.25rem 0">LENGTH (IN)</td>
+            <td style="color:#f9fafb;font-weight:600">{result.length_display}</td></tr>
+        <tr><td style="color:#6b7280;padding:0.25rem 0.5rem 0.25rem 0">WATTAGE (W)</td>
+            <td style="color:#f9fafb;font-weight:600">{round(result.total_system_w)}</td></tr>
+        <tr><td style="color:#6b7280;padding:0.25rem 0.5rem 0.25rem 0">CALCULATED L70 LIFESPAN (HRS)</td>
+            <td style="color:#f9fafb;font-weight:600">{result.l70_hours:,}</td></tr>
+        <tr><td style="color:#6b7280;padding:0.25rem 0.5rem 0.25rem 0">CCT (K)</td>
+            <td style="color:#f9fafb;font-weight:600">{result.color_temp}</td></tr>
+        <tr><td style="color:#6b7280;padding:0.25rem 0.5rem 0.25rem 0">TOTAL INITIAL LUMENS</td>
+            <td style="color:#f9fafb;font-weight:600">{result.initial_lumens:,} <span style="color:#6b7280;font-weight:400">@ {result.lumens_per_ft:.0f} LM/FT</span></td></tr>
+        <tr><td style="color:#6b7280;padding:0.25rem 0.5rem 0.25rem 0">CRI</td>
+            <td style="color:#f9fafb;font-weight:600">{result.cri}</td></tr>
+      </table>
+    </div>
+    """, unsafe_allow_html=True)
+
     # ── Geometry ───────────────────────────────────────────────────────────
     st.markdown('<div class="section-header">Geometry</div>', unsafe_allow_html=True)
     gc1, gc2, gc3 = st.columns(3)

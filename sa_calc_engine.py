@@ -83,6 +83,7 @@ class LEDStrip:
     pcb_width_mm: float
     l70_hours: int
     cri: str
+    led_type: str            # Human-readable product description
     wm_curve: dict[float, Optional[float]]   # {length_m: W/m}
     lux_curve: dict[float, Optional[float]] = field(default_factory=dict)
 
@@ -106,6 +107,7 @@ class LEDStrip:
             pcb_width_mm=float(d.get("pcb_width_mm", 0)),
             l70_hours=int(d.get("l70_hours", 0)),
             cri=d.get("cri", ""),
+            led_type=d.get("led_type", "Replaceable Flex Strips"),
             wm_curve={float(k): (float(v) if v is not None else None)
                       for k, v in raw_wm.items()},
             lux_curve={float(k): (float(v) if v is not None else None)
@@ -197,33 +199,54 @@ class CalcOutputs:
     segment_mm: float           # FX3
 
     # --- Interpolation ---
-    measured_wm: float          # GG2 / C23 — the interpolated W/m at actual length
+    measured_wm: float          # GG2 / C23
 
     # --- Power ---
     required_w_per_strip: float # GL2
     driver_rated_w: float       # GH3
     buffered_headroom_w: float  # GJ2
-    per_strip_driver_ratio: float  # GK2
+    per_strip_driver_ratio: float
     buffer_multiplier: float    # GM2
-    button_correction_w: int    # GN2
-    buffered_w_per_driver: float  # GO2 / C20
-    total_system_w: float       # C19 = C20 * (C4/C5)
+    button_correction_w: int    # GN2 + C12
+    buffered_w_per_driver: float  # GO2
+    total_system_w: float       # C19
+
+    # --- Power Requirements (before tech features) ---
+    input_power_w: float        # total_system_w / driver_efficiency
+    voltage_lower: float        # driver input lower voltage
+    voltage_upper: float        # driver input upper voltage
+    voltage_separator: str      # "OR" or "-"
+    amps_lower: float           # input_power_w / (voltage_lower * power_factor)
+    amps_upper: float           # input_power_w / (voltage_upper * power_factor)
 
     # --- Lumens ---
-    initial_lumens: int         # GT2 — FIXED(actual_length_in * lm_per_in * num_strips)
+    initial_lumens: int         # GT2
+    lumens_per_ft: float        # from LED reference
+
+    # --- LED Specification ---
+    led_type: str               # human-readable strip description
+    l70_hours: int              # lifespan hours
+    color_temp: str             # CCT string
+    cri: str                    # CRI rating
+    num_strips: int             # C4 (echoed for display)
 
     # --- Validation ---
-    bad_driver_wattage: bool      # HC2: total_system_w >= driver_rated_w
-    bad_length: bool              # HD2: actual_length_m > max_run_m
-    bad_inputs: bool              # HB2: dropdown validation failed
-    state_is_invalid: bool        # HE2: overall FAIL (red = True, green = False)
+    bad_driver_wattage: bool
+    bad_length: bool
+    bad_inputs: bool
+    state_is_invalid: bool
 
     # --- Diagnostics ---
     validation_messages: list[str] = field(default_factory=list)
 
     @property
     def state_label(self) -> str:
-        return "🔴 INVALID" if self.state_is_invalid else "🟢 VALID"
+        return "INVALID" if self.state_is_invalid else "VALID"
+
+    @property
+    def length_display(self) -> str:
+        """e.g. '2X 109' for 2 strips at 109.15in"""
+        return f"{self.num_strips}X {self.actual_length_in:.0f}"
 
 
 # ---------------------------------------------------------------------------
@@ -449,19 +472,28 @@ class SACalcEngine:
         total_system_w = buffered_w_per_driver * (inp.num_strips / inp.num_drivers)   # C19
 
         # ---------------------------------------------------------------
-        # Step 6: Lumens
+        # Step 6: Power Requirements (input-side, before tech features)
+        # input_power = total_system_w / driver_efficiency
+        # amps = input_power / (voltage * power_factor)
+        # ---------------------------------------------------------------
+        input_power_w = total_system_w / driver.efficiency if driver.efficiency > 0 else total_system_w
+        pf = driver.power_factor if driver.power_factor > 0 else 1.0
+        v_lo = driver.input_lower_v
+        v_hi = driver.input_upper_v
+        amps_lower = input_power_w / (v_lo * pf) if v_lo > 0 else 0.0
+        amps_upper = input_power_w / (v_hi * pf) if v_hi > 0 else 0.0
+
+        # ---------------------------------------------------------------
+        # Step 7: Lumens
         # GT2 = FIXED(actual_length_in * lumens_per_inch * num_strips, 0)
         # ---------------------------------------------------------------
         initial_lumens = round(actual_length_in * strip.lumens_per_inch * inp.num_strips)
 
         # ---------------------------------------------------------------
-        # Step 7: Validation gate (HC2 / HD2 / HE2)
-        # HC2: total_system_w >= driver_rated_w  (Bad Driver Wattage)
-        # HD2: actual_length_m > max_run_m       (Bad Length)
-        # HE2: HC2 OR HD2 OR bad_inputs          (Bad Calc → FAIL)
+        # Step 8: Validation gate (HC2 / HD2 / HE2)
         # ---------------------------------------------------------------
-        bad_driver_wattage = total_system_w >= driver_rated_w         # HC2
-        bad_length         = actual_length_m > strip.max_run_m        # HD2
+        bad_driver_wattage = total_system_w >= driver_rated_w
+        bad_length         = actual_length_m > strip.max_run_m
 
         if bad_driver_wattage:
             messages.append(
@@ -490,7 +522,19 @@ class SACalcEngine:
             button_correction_w=button_correction_w,
             buffered_w_per_driver=buffered_w_per_driver,
             total_system_w=total_system_w,
+            input_power_w=input_power_w,
+            voltage_lower=v_lo,
+            voltage_upper=v_hi,
+            voltage_separator=driver.input_separator,
+            amps_lower=amps_lower,
+            amps_upper=amps_upper,
             initial_lumens=initial_lumens,
+            lumens_per_ft=strip.lumens_per_ft,
+            led_type=strip.led_type,
+            l70_hours=strip.l70_hours,
+            color_temp=strip.color_temp,
+            cri=strip.cri,
+            num_strips=inp.num_strips,
             bad_driver_wattage=bad_driver_wattage,
             bad_length=bad_length,
             bad_inputs=bad_inputs,
