@@ -209,7 +209,8 @@ class CalcOutputs:
     buffer_multiplier: float    # GM2
     button_correction_w: int    # GN2 + C12
     buffered_w_per_driver: float  # GO2
-    total_system_w: float       # C19
+    total_system_w: float       # C19 — buffered W/driver × (strips/drivers): VALID check value
+    measured_total_w: float     # GL2 × C4 — actual measured strip draw: used for LED Spec WATTAGE + Amps
 
     # --- Power Requirements (before tech features) ---
     input_power_w: float        # total_system_w / driver_efficiency
@@ -472,12 +473,18 @@ class SACalcEngine:
         total_system_w = buffered_w_per_driver * (inp.num_strips / inp.num_drivers)   # C19
 
         # ---------------------------------------------------------------
-        # Step 6: Power Requirements (input-side, before tech features)
-        # input_power = total_system_w / driver_efficiency
-        # amps = input_power / (voltage * power_factor)
+        # Step 6: Power Requirements (input-side, BEFORE ADDITIONAL TECH FEATURES)
+        # The Excel "WATTAGE (W)" and AMPS are based on the RAW MEASURED total
+        # (GL2 × num_strips), NOT the buffered safety-check value (C19).
+        # This matches the Excel label: "Power Requirements (before additional tech features)"
+        #
+        # measured_total_w = GL2 × C4  = required_w_per_strip * num_strips
+        # input_power_w    = measured_total_w / driver_efficiency
+        # amps             = input_power_w / (voltage × power_factor)
         # ---------------------------------------------------------------
-        input_power_w = total_system_w / driver.efficiency if driver.efficiency > 0 else total_system_w
-        pf = driver.power_factor if driver.power_factor > 0 else 1.0
+        measured_total_w = required_w_per_strip * inp.num_strips          # GL2 × C4
+        input_power_w    = measured_total_w / driver.efficiency if driver.efficiency > 0 else measured_total_w
+        pf   = driver.power_factor if driver.power_factor > 0 else 1.0
         v_lo = driver.input_lower_v
         v_hi = driver.input_upper_v
         amps_lower = input_power_w / (v_lo * pf) if v_lo > 0 else 0.0
@@ -522,6 +529,7 @@ class SACalcEngine:
             button_correction_w=button_correction_w,
             buffered_w_per_driver=buffered_w_per_driver,
             total_system_w=total_system_w,
+            measured_total_w=measured_total_w,
             input_power_w=input_power_w,
             voltage_lower=v_lo,
             voltage_upper=v_hi,

@@ -358,7 +358,7 @@ with right:
         <tr><td style="color:#6b7280;padding:0.25rem 0.5rem 0.25rem 0">LENGTH (IN)</td>
             <td style="color:#f9fafb;font-weight:600">{result.length_display}</td></tr>
         <tr><td style="color:#6b7280;padding:0.25rem 0.5rem 0.25rem 0">WATTAGE (W)</td>
-            <td style="color:#f9fafb;font-weight:600">{round(result.total_system_w)}</td></tr>
+            <td style="color:#f9fafb;font-weight:600">{round(result.measured_total_w)}</td></tr>
         <tr><td style="color:#6b7280;padding:0.25rem 0.5rem 0.25rem 0">CALCULATED L70 LIFESPAN (HRS)</td>
             <td style="color:#f9fafb;font-weight:600">{result.l70_hours:,}</td></tr>
         <tr><td style="color:#6b7280;padding:0.25rem 0.5rem 0.25rem 0">CCT (K)</td>
