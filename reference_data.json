@@ -434,6 +434,24 @@
         "CCT": true, "DIM_TO_WARM": false
       }
     },
+    "70888 - SMARTS": {
+      "dimming_style": "D2",
+      "mfr_pn": "SMT-024-060VTHW",
+      "power_factor": 0.99,
+      "efficiency": 0.83,
+      "power_w": 60,
+      "current_a": 2.5,
+      "input_lower_v": 100,
+      "input_separator": "-",
+      "input_upper_v": 130,
+      "em_use_note": "(Almost) Retired D2 - JS2/Legacy only",
+      "retired": false,
+      "compatible_lines": {
+        "GEN4": false, "RAD4": false, "JS2_3_JS3": false, "JS2": true,
+        "LEGACY": false, "STANDARD": true, "V230": false, "V277": false,
+        "CCT": false, "DIM_TO_WARM": true
+      }
+    },
     "73709 - SMARTS": {
       "dimming_style": "D2",
       "mfr_pn": "SMT-024-060VTHW",
@@ -540,6 +558,24 @@
         "GEN4": true, "RAD4": true, "JS2_3_JS3": true, "JS2": true,
         "LEGACY": true, "STANDARD": true, "V230": true, "V277": true,
         "CCT": true, "DIM_TO_WARM": false
+      }
+    },
+    "82329 - LETARON + ERP": {
+      "dimming_style": "D1",
+      "mfr_pn": "AEK-TS-0000 + VLM100W-24",
+      "power_factor": 0.98,
+      "efficiency": 0.9,
+      "power_w": 96,
+      "current_a": 4,
+      "input_lower_v": 120,
+      "input_separator": "OR",
+      "input_upper_v": 277,
+      "em_use_note": "D1 Switch - Used in Combination with 71225 ERP for 4's",
+      "retired": false,
+      "compatible_lines": {
+        "GEN4": true, "RAD4": true, "JS2_3_JS3": false, "JS2": false,
+        "LEGACY": false, "STANDARD": true, "V230": false, "V277": true,
+        "CCT": false, "DIM_TO_WARM": true
       }
     },
     "84514 - 96W EUCHIPS (D1)": {
