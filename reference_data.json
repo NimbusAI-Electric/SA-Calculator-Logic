@@ -542,6 +542,24 @@
         "CCT": true, "DIM_TO_WARM": false
       }
     },
+    "84514 - 96W EUCHIPS (D1)": {
+      "dimming_style": "D1",
+      "mfr_pn": "MUP96AT-1W24V",
+      "power_factor": 0.95,
+      "efficiency": 0.87,
+      "power_w": 96,
+      "current_a": 4,
+      "input_lower_v": 120,
+      "input_separator": "-",
+      "input_upper_v": 277,
+      "em_use_note": "DM Driver - Standard D1+D2 Combo",
+      "retired": false,
+      "compatible_lines": {
+        "GEN4": true, "RAD4": false, "JS2_3_JS3": true, "JS2": true,
+        "LEGACY": true, "STANDARD": true, "V230": true, "V277": true,
+        "CCT": false, "DIM_TO_WARM": true
+      }
+    },
     "84514 - 96W EUCHIPS (DM)": {
       "dimming_style": "DM",
       "mfr_pn": "MUP96AT-1W24V",
@@ -557,6 +575,24 @@
       "compatible_lines": {
         "GEN4": true, "RAD4": false, "JS2_3_JS3": true, "JS2": true,
         "LEGACY": true, "STANDARD": true, "V230": true, "V277": true,
+        "CCT": false, "DIM_TO_WARM": true
+      }
+    },
+    "84849 - 96W SCPOWER (D1)": {
+      "dimming_style": "D1",
+      "mfr_pn": "KVG-24096-DWS",
+      "power_factor": 0.99,
+      "efficiency": 0.85,
+      "power_w": 96,
+      "current_a": 4,
+      "input_lower_v": 100,
+      "input_separator": "-",
+      "input_upper_v": 277,
+      "em_use_note": "DM Driver - Slim Depth D1+D2 Combo for RAD",
+      "retired": false,
+      "compatible_lines": {
+        "GEN4": false, "RAD4": true, "JS2_3_JS3": false, "JS2": false,
+        "LEGACY": false, "STANDARD": true, "V230": true, "V277": true,
         "CCT": false, "DIM_TO_WARM": true
       }
     },
