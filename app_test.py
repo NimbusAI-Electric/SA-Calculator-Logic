@@ -443,5 +443,5 @@ with right:
                 columns=["Length (m)", "W/m"]
             ).set_index("Length (m)")
 
-            st.line_chart(chart_data, color="#ff8c00", height=180, use_container_width=True)
-            st.caption(f"Operating point: {result.actual_length_m:.3f}m → {result.measured_wm:.3f} W/m")
+            st.line_chart(chart_data, color="#ff8c00", height=180)
+            st.caption(f"Operating point: {result.actual_length_m:.3f}m -> {result.measured_wm:.3f} W/m")
