@@ -1,0 +1,40 @@
+EM# + Description,Dimming Style,Mfr. P#,Power Factor,Efficiency,Power (W),Current (A),Input Range (Lower),Separator,Input Range (Upper),EM Use,GEN4,RAD4,JS2.3/JS3,JS2,LEGACY,STANDARD,230V,277V,CCT,DIM TO WARM
+60470 - 75W MW,NON-DIMMING,LRS-75-24,0.6,0.9,76.8,3.2,85,-,264,Lower Power Budget Non-Dimming Option,,,YES,YES,YES,YES,YES,,,
+60471 - 100W MW,NON-DIMMING,LRS-100-24,0.6,0.9,108,4.5,85,-,264,Budget Non-Dimming Option,,,YES,YES,YES,YES,YES,,,
+71225 - 96W ERP,NON-DIMMING,VLM100W-24,0.98,0.9,96,4,120,OR,277,Slim Depth Non-Dimming Option - 120V or 277V,YES,YES,YES,YES,YES,YES,,YES,,
+73300 - 96W ERP (230V),NON-DIMMING,VLM100E-24,0.98,0.91,96,4,220,-,240,Slim Depth Non-Dimming Option - 230V,YES,YES,YES,YES,YES,,YES,,,
+,,,,,,,,,,,,,,,,,,,,
+71225 - 96W ERP,AVA,VLM100W-24,0.98,0.9,96,4,120,OR,277,Touch Button Option - 120V or 277V,YES,YES,YES,YES,YES,YES,,YES,YES,
+73300 - 96W ERP (230V),AVA,VLM100E-24,0.98,0.91,96,4,220,-,240,Touch Button Option - 230V,YES,YES,YES,YES,YES,,YES,,YES,
+,,,,,,,,,,,,,,,,,,,,
+84514 - 96W EUCHIPS,D1,MUP96AT-1W24V,0.95,0.87,96,4,120,-,277,DM Driver - Standard D1+D2 Combo,,,YES,YES,YES,YES,YES,YES,,YES
+84849 - 96W SCPOWER,D1,KVG-24096-DWS,0.99,0.85,96,4,100,-,277,DM Driver - Slim Depth D1+D2 Combo for RAD,,,,,,YES,YES,YES,,YES
+82329 - LETARON + ERP,D1,AEK-TS-0000 + VLM100W-24,0.98,0.9,96,4,120,OR,277,D1 Switch - Used in Combination with 71225 ERP for 4's,YES,YES,,,,YES,,YES,,YES
+,,,,,,,,,,,,,,,,,,,,
+70888 - SMARTS,D2,SMT-024-060VTHW,0.99,0.83,60,2.5,100,-,130,(Almost) Retired D2,,,,YES,,YES,,,,YES
+73709 - SMARTS,D2,SMT-024-060VTHW,0.99,0.83,60,2.5,100,-,277,(Almost) Retired D2,,,YES,YES,YES,YES,YES,YES,,YES
+79314 - SMARTS,D2,SMT-024-096VTSP,0.99,0.84,96,4,100,-,277,(Almost) Retired D2,YES,YES,YES,YES,YES,YES,YES,YES,,YES
+84514 - 96W EUCHIPS,D2,MUP96AT-1W24V,0.95,0.87,96,4,120,-,277,DM Driver - Standard D1+D2 Combo,YES,,YES,YES,YES,YES,YES,YES,,YES
+84849 - 96W SCPOWER,D2,KVG-24096-DWS,0.99,0.85,96,4,100,-,277,DM Driver - Slim Depth D1+D2 Combo for RAD,,YES,,,,YES,YES,YES,,YES
+,,,,,,,,,,,,,,,,,,,,
+8???? - SCPOWER,D4,KV-24096-DP2A,0.95,0.9,96,4,100,-,277,D4 Driver,YES,YES,YES,YES,YES,YES,YES,YES,,YES
+,,,,,,,,,,,,,,,,,,,,
+84633 - SCPOWER,D4 DT8,KV-24096-2C-DP2A,0.95,0.9,96,4,100,-,277,D4 Driver - 2 Channel DT8,YES,YES,YES,YES,YES,YES,YES,YES,YES,
+,,,,,,,,,,,,,,,,,,,,
+84514 - 96W EUCHIPS,DM,MUP96AT-1W24V,0.95,0.87,96,4,120,-,277,DM Driver - Standard D1+D2 Combo,YES,,YES,YES,YES,YES,YES,YES,,YES
+84849 - 96W SCPOWER,DM,KVG-24096-DWS,0.99,0.85,96,4,100,-,277,DM Driver - Slim Depth D1+D2 Combo for RAD,,YES,,,,YES,YES,YES,,YES
+,,,,,,,,,,,,,,,,,,,,
+71225 - 96W ERP,KEEN,VLM100W-24,0.98,0.9,96,4,120,OR,277,Touch Button Option - 120V or 277V,YES,YES,YES,YES,YES,YES,,YES,,YES
+73300 - 96W ERP (230V),KEEN,VLM100E-24,0.98,0.91,96,4,220,-,240,Touch Button Option - 230V,YES,YES,YES,YES,YES,,YES,,,YES
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+EM# + Description,Dimming Style,Mfr. P#,Power Factor,Efficiency,Power (W),Current (A),Input Range (Lower),Separator,Input Range (Upper),EM Use,GEN4,RAD4,JS2.3/JS3,JS2,LEGACY,STANDARD,230V,277V,CCT,DIM TO WARM
+71100 - HEP,Retired,BLD-096-V024-UNV-DNU,0.95,0.86,96,4,90,-,305,Retired D1,,,,,,,,,,
+71822 - HEP,Retired,BLD-096-V024-ANU,0.95,0.86,96,4,90,-,305,Retired D4,,,,,,,,,,
+81030 - LETARON,Retired,AED90-24VUL-3F,0.49,0.87,90,3.75,108,-,132,Retired Budget Option,,,,,,,,,,

@@ -1,0 +1,35 @@
+# ── Python ────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# ── Virtual environments ───────────────────────
+.venv/
+venv/
+env/
+
+# ── Streamlit ──────────────────────────────────
+.streamlit/
+
+# ── Scratch / extraction artifacts ────────────
+extract_excel.py
+extract_fast.py
+extract_colored.py
+extract_smart.py
+extract_output.txt
+excel_data.json
+sa_calc_formulas_top120.json
+
+# ── OS artifacts ───────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Sensitive / large binary source ───────────
+# Keeping CSVs (small reference data) but excluding the xlsx source
+Sales Aid Calc v0.94.xlsx

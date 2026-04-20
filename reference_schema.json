@@ -1,0 +1,124 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SA Calc Engine — Reference Data Schema",
+  "version": "1.0.0",
+  "description": "JSON schema for LED strip and Driver reference tables used by the SA Calc Engine. All numeric fields are in SI units unless noted.",
+
+  "led_reference": {
+    "_description": "Keyed by EM LED Style name. Each entry defines physical and photometric properties of a strip type, plus a W/m measurement curve.",
+    "type": "object",
+    "patternProperties": {
+      ".*": {
+        "type": "object",
+        "required": ["em_number", "roll_length_m", "max_run_m", "color_temp", "lumens_per_inch", "segment_mm", "pcb_width_mm", "l70_hours", "cri", "wm_curve"],
+        "properties": {
+          "em_number":        { "type": "string",  "description": "Electric Mirror catalog number", "example": "79245" },
+          "roll_length_m":    { "type": "string",  "description": "Physical roll length descriptor", "example": "5m / 30m" },
+          "max_run_m":        { "type": "number",  "description": "Maximum continuous run per vendor (meters)", "example": 5 },
+          "color_temp":       { "type": "string",  "description": "Color temperature or range", "example": "3000K" },
+          "lumens_per_inch":  { "type": "number",  "description": "Photometric output per inch of strip at rated current", "example": 106.68 },
+          "lumens_per_ft":    { "type": "number",  "description": "Photometric output per foot (= lumens_per_inch × 12)", "example": 1280 },
+          "lumens_per_m":     { "type": "number",  "description": "Photometric output per meter", "example": 4200 },
+          "efficiency_lm_w":  { "type": "number",  "description": "Luminous efficacy (lm/W)", "example": 140 },
+          "nominal_wm":       { "type": "number",  "description": "Nominal power density (W/m)", "example": 30 },
+          "max_wm":           { "type": "number",  "description": "Maximum rated power density (W/m)", "example": 33 },
+          "segment_mm":       { "type": "number",  "description": "Cuttable segment pitch (mm) — used for length snapping", "example": 50 },
+          "pcb_width_mm":     { "type": "number",  "description": "PCB width in mm", "example": 12 },
+          "l70_hours":        { "type": "integer", "description": "Lumen maintenance L70 lifetime (hours)", "example": 52000 },
+          "cri":              { "type": "string",  "description": "Color Rendering Index rating", "example": "90+" },
+          "wm_curve": {
+            "type": "object",
+            "description": "Measured W/m at discrete lengths (meters). Used for linear interpolation of Actual W/m based on installed run length. Null values mean no data at that length.",
+            "properties": {
+              "0.25": { "type": ["number", "null"] },
+              "0.5":  { "type": ["number", "null"] },
+              "1":    { "type": ["number", "null"] },
+              "2":    { "type": ["number", "null"] },
+              "3":    { "type": ["number", "null"] },
+              "4":    { "type": ["number", "null"] },
+              "5":    { "type": ["number", "null"] },
+              "6":    { "type": ["number", "null"] },
+              "7":    { "type": ["number", "null"] },
+              "8":    { "type": ["number", "null"] },
+              "9":    { "type": ["number", "null"] },
+              "10":   { "type": ["number", "null"] }
+            }
+          },
+          "lux_curve": {
+            "type": "object",
+            "description": "Optional: Average Lux at each length (for CRI95 and COB LO strips only)",
+            "additionalProperties": { "type": ["number", "null"] }
+          }
+        }
+      }
+    },
+    "example": {
+      "LHE": {
+        "em_number": "79245",
+        "roll_length_m": "5m",
+        "max_run_m": 5,
+        "color_temp": "3000K",
+        "lumens_per_inch": 106.68,
+        "lumens_per_ft": 1280,
+        "lumens_per_m": 4200,
+        "efficiency_lm_w": 140,
+        "nominal_wm": 30,
+        "max_wm": 33,
+        "segment_mm": 50,
+        "pcb_width_mm": 12,
+        "l70_hours": 52000,
+        "cri": "90+",
+        "wm_curve": {
+          "0.25": 33.84, "0.5": 33.19, "1": 32.39, "2": 28.65,
+          "3": 25.32, "4": 22.35, "5": 19.46, "6": null,
+          "7": null, "8": null, "9": null, "10": null
+        }
+      }
+    }
+  },
+
+  "driver_reference": {
+    "_description": "Keyed by EM driver catalog number + description. Each entry defines electrical ratings and compatibility flags.",
+    "type": "object",
+    "patternProperties": {
+      ".*": {
+        "type": "object",
+        "required": ["dimming_style", "mfr_pn", "power_factor", "efficiency", "power_w", "current_a", "input_lower_v", "input_upper_v", "compatible_lines"],
+        "properties": {
+          "dimming_style":  { "type": "string",  "description": "Dimming protocol", "enum": ["NON-DIMMING","AVA","D1","D2","D4","D4 DT8","DM","KEEN","Retired"] },
+          "mfr_pn":         { "type": "string",  "description": "Manufacturer part number", "example": "SMT-024-096VTSP" },
+          "power_factor":   { "type": "number",  "description": "Power factor (0-1)", "example": 0.99 },
+          "efficiency":     { "type": "number",  "description": "Driver efficiency (0-1)", "example": 0.84 },
+          "power_w":        { "type": "number",  "description": "Rated output power (W) — the key threshold in validation", "example": 96 },
+          "current_a":      { "type": "number",  "description": "Rated output current (A)", "example": 4 },
+          "input_lower_v":  { "type": "number",  "description": "Minimum input voltage (V)", "example": 100 },
+          "input_separator":{ "type": "string",  "description": "'-' for range, 'OR' for dual nominal", "enum": ["-","OR"] },
+          "input_upper_v":  { "type": "number",  "description": "Maximum (or second nominal) input voltage (V)", "example": 277 },
+          "em_use_note":    { "type": "string",  "description": "Human-readable usage note" },
+          "retired":        { "type": "boolean", "description": "True if this driver is retired/deprecated", "default": false },
+          "compatible_lines": {
+            "type": "object",
+            "description": "Which product lines and configurations support this driver",
+            "properties": {
+              "GEN4":       { "type": "boolean" },
+              "RAD4":       { "type": "boolean" },
+              "JS2_3_JS3":  { "type": "boolean" },
+              "JS2":        { "type": "boolean" },
+              "LEGACY":     { "type": "boolean" },
+              "STANDARD":   { "type": "boolean" },
+              "V230":       { "type": "boolean" },
+              "V277":       { "type": "boolean" },
+              "CCT":        { "type": "boolean" },
+              "DIM_TO_WARM":{ "type": "boolean" }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "_constants": {
+    "driver_buffer_pct": 0.15,
+    "_note": "15% driver headroom buffer applied to rated wattage before validation check"
+  }
+}

@@ -1,0 +1,652 @@
+{
+  "_meta": {
+    "source": "Sales Aid Calc v0.94.xlsx — LED Reference sheet",
+    "extracted": "2026-04-20",
+    "units": {
+      "length": "meters",
+      "wattage": "W/m",
+      "lumens": "per inch for lumens_per_inch, per foot for lumens_per_ft, per meter for lumens_per_m",
+      "segment_mm": "millimeters"
+    },
+    "wm_curve_note": "Measured W/m at discrete run lengths (m). Used for linear interpolation. null = no test data at that length."
+  },
+  "led_strips": {
+    "LSE": {
+      "em_number": "79230",
+      "roll_length": "5m",
+      "max_run_m": 5,
+      "color_temp": "3000K",
+      "lumens_per_inch": 71.12,
+      "lumens_per_ft": 853,
+      "lumens_per_m": 2800,
+      "efficiency_lm_w": 140,
+      "nominal_wm": 20,
+      "max_wm": 22,
+      "segment_mm": 55.55,
+      "pcb_width_mm": 10,
+      "l70_hours": 52000,
+      "cri": "90+",
+      "wm_curve": {
+        "0.25": 21.58, "0.5": 20.96, "1": 20.7,  "2": 18.98,
+        "3": 17.52,    "4": 15.67,   "5": 14.51,  "6": null,
+        "7": null,      "8": null,    "9": null,    "10": null
+      }
+    },
+    "LHE": {
+      "em_number": "79245",
+      "roll_length": "5m",
+      "max_run_m": 5,
+      "color_temp": "3000K",
+      "lumens_per_inch": 106.68,
+      "lumens_per_ft": 1280,
+      "lumens_per_m": 4200,
+      "efficiency_lm_w": 140,
+      "nominal_wm": 30,
+      "max_wm": 33,
+      "segment_mm": 45.45,
+      "pcb_width_mm": 12,
+      "l70_hours": 52000,
+      "cri": "90+",
+      "wm_curve": {
+        "0.25": 33.84, "0.5": 33.19, "1": 32.39, "2": 28.65,
+        "3": 25.32,    "4": 22.35,   "5": 19.46,  "6": null,
+        "7": null,      "8": null,    "9": null,    "10": null
+      }
+    },
+    "AVA": {
+      "em_number": "81900",
+      "roll_length": "5m",
+      "max_run_m": 5,
+      "color_temp": "2700-6000K",
+      "lumens_per_inch": 59.44,
+      "lumens_per_ft": 701,
+      "lumens_per_m": 2340,
+      "efficiency_lm_w": 90,
+      "nominal_wm": 26,
+      "max_wm": 28.6,
+      "segment_mm": 50,
+      "pcb_width_mm": 12,
+      "l70_hours": 50000,
+      "cri": "90+",
+      "wm_curve": {
+        "0.25": 29.11, "0.5": 28.82, "1": 28.01, "2": 25.57,
+        "3": 24.27,    "4": 22.59,   "5": 21.62,  "6": null,
+        "7": null,      "8": null,    "9": null,    "10": null
+      }
+    },
+    "SO": {
+      "em_number": "56774",
+      "roll_length": "5m",
+      "max_run_m": 5,
+      "color_temp": "3000K",
+      "lumens_per_inch": 50.29,
+      "lumens_per_ft": 604,
+      "lumens_per_m": 1980,
+      "efficiency_lm_w": 90,
+      "nominal_wm": 22,
+      "max_wm": 24,
+      "segment_mm": 50,
+      "pcb_width_mm": 10,
+      "l70_hours": 124000,
+      "cri": "90+",
+      "wm_curve": {
+        "0.25": 23.58, "0.5": 23.38, "1": 23.21, "2": 21.86,
+        "3": 20.29,    "4": 18.67,   "5": 17.12,  "6": null,
+        "7": null,      "8": null,    "9": null,    "10": null
+      }
+    },
+    "HO": {
+      "em_number": "64334",
+      "roll_length": "5m",
+      "max_run_m": 5,
+      "color_temp": "3000K",
+      "lumens_per_inch": 76.20,
+      "lumens_per_ft": 823,
+      "lumens_per_m": 3000,
+      "efficiency_lm_w": 100,
+      "nominal_wm": 30,
+      "max_wm": 32,
+      "segment_mm": 55.55,
+      "pcb_width_mm": 12,
+      "l70_hours": 52000,
+      "cri": "90+",
+      "wm_curve": {
+        "0.25": 32.45, "0.5": 31.75, "1": 31.48, "2": 29.26,
+        "3": 27.16,    "4": 24.9,    "5": 21.4,   "6": null,
+        "7": null,      "8": null,    "9": null,    "10": null
+      }
+    },
+    "LO": {
+      "em_number": "82180 / 82181",
+      "roll_length": "5m / 7.1m",
+      "max_run_m": 7.1,
+      "color_temp": "3300K",
+      "lumens_per_inch": 25.15,
+      "lumens_per_ft": 302,
+      "lumens_per_m": 990,
+      "efficiency_lm_w": 90,
+      "nominal_wm": 11,
+      "max_wm": 12,
+      "segment_mm": 50,
+      "pcb_width_mm": 10,
+      "l70_hours": 140000,
+      "cri": "90+",
+      "wm_curve": {
+        "0.25": 10.49, "0.5": 10.49, "1": 10.38, "2": 10.2,
+        "3": 10.05,    "4": 9.8,     "5": 9.37,   "6": 9.37,
+        "7": 9.37,     "8": 9.37,    "9": null,   "10": null
+      }
+    },
+    "AVA (OLD)": {
+      "em_number": "67500",
+      "roll_length": "5m",
+      "max_run_m": 5,
+      "color_temp": "2700-6500K",
+      "lumens_per_inch": 44.45,
+      "lumens_per_ft": 533,
+      "lumens_per_m": 1750,
+      "efficiency_lm_w": 76,
+      "nominal_wm": 23,
+      "max_wm": 25.3,
+      "segment_mm": 50,
+      "pcb_width_mm": 10,
+      "l70_hours": 50000,
+      "cri": "90+",
+      "wm_curve": {
+        "0.25": 23, "0.5": 23, "1": 23, "2": 23,
+        "3": 23,    "4": 23,   "5": 23,  "6": null,
+        "7": null,  "8": null,  "9": null, "10": null
+      }
+    },
+    "CRI95 LSE": {
+      "em_number": "83901-30K",
+      "roll_length": "30m",
+      "max_run_m": 5,
+      "color_temp": "3000K",
+      "lumens_per_inch": 71.12,
+      "lumens_per_ft": 853,
+      "lumens_per_m": 2800,
+      "efficiency_lm_w": 140,
+      "nominal_wm": 20,
+      "max_wm": 22,
+      "segment_mm": 50,
+      "pcb_width_mm": 10,
+      "l70_hours": 50000,
+      "cri": "95+",
+      "wm_curve": {
+        "0.25": 22, "0.5": 21, "1": 20.88, "2": 18.48,
+        "3": 17.6,  "4": 15.6, "5": 14.16,  "6": null,
+        "7": null,  "8": null,  "9": null,   "10": null
+      },
+      "lux_curve": {
+        "0.5": 6897, "1": 6397, "2": 6017, "3": 5443, "4": 4890,
+        "5": 4553, "6": 4117, "7": 3940, "8": 3420, "9": 3517
+      }
+    },
+    "CRI95 LHE": {
+      "em_number": "83911-30K",
+      "roll_length": "30m",
+      "max_run_m": 5,
+      "color_temp": "3000K",
+      "lumens_per_inch": 106.68,
+      "lumens_per_ft": 1280,
+      "lumens_per_m": 4200,
+      "efficiency_lm_w": 140,
+      "nominal_wm": 30,
+      "max_wm": 33,
+      "segment_mm": 50,
+      "pcb_width_mm": 10,
+      "l70_hours": 50000,
+      "cri": "95+",
+      "wm_curve": {
+        "0.25": 32, "0.5": 30, "1": 29.04, "2": 24.72,
+        "3": 22.32, "4": 19.56, "5": 17.52, "6": null,
+        "7": null,  "8": null,  "9": null,   "10": null
+      },
+      "lux_curve": {
+        "0.5": 9463, "1": 8210, "2": 7613, "3": 6857, "4": 6120,
+        "5": 5710, "6": 5290, "7": 4577, "8": 4500, "9": 4087
+      }
+    },
+    "CRI95 AVA": {
+      "em_number": "83930",
+      "roll_length": "30m",
+      "max_run_m": 5,
+      "color_temp": "2700-6500K",
+      "lumens_per_inch": 76.20,
+      "lumens_per_ft": 915,
+      "lumens_per_m": 3000,
+      "efficiency_lm_w": 100,
+      "nominal_wm": 30,
+      "max_wm": 33,
+      "segment_mm": 50,
+      "pcb_width_mm": 12,
+      "l70_hours": 50000,
+      "cri": "95+",
+      "wm_curve": {
+        "0.25": 33, "0.5": 33, "1": 33, "2": 33,
+        "3": 33,    "4": 33,   "5": 33,  "6": null,
+        "7": null,  "8": null,  "9": null, "10": null
+      }
+    },
+    "COB LO": {
+      "em_number": "83925-33K",
+      "roll_length": "30m",
+      "max_run_m": 7.6,
+      "color_temp": "3300K",
+      "lumens_per_inch": 25.40,
+      "lumens_per_ft": 302,
+      "lumens_per_m": 1000,
+      "efficiency_lm_w": 100,
+      "nominal_wm": 10,
+      "max_wm": 11,
+      "segment_mm": 50,
+      "pcb_width_mm": 10,
+      "l70_hours": 50000,
+      "cri": "90+",
+      "wm_curve": {
+        "0.25": 11.33, "0.5": 11.23, "1": 11.13, "2": 11,
+        "3": 10.72,    "4": 10.24,   "5": 10.01,  "6": 9.6,
+        "7": 8.96,     "8": 8.58,    "9": 8.11,   "10": 7.84
+      },
+      "lux_curve": {
+        "0.5": 2440, "1": 2497, "2": 2447, "3": 2310, "4": 2253,
+        "5": 2217, "6": 2090, "7": 2020, "8": 1953, "9": 1890
+      }
+    },
+    "COB LO AVA": {
+      "em_number": "83935",
+      "roll_length": "30m",
+      "max_run_m": 5,
+      "color_temp": "2700-6500K",
+      "lumens_per_inch": 25.40,
+      "lumens_per_ft": 302,
+      "lumens_per_m": 1000,
+      "efficiency_lm_w": 87,
+      "nominal_wm": 11.5,
+      "max_wm": 12.65,
+      "segment_mm": 50,
+      "pcb_width_mm": 12,
+      "l70_hours": 50000,
+      "cri": "90+",
+      "wm_curve": {
+        "0.25": 12.65, "0.5": 12.65, "1": 12.65, "2": 12.65,
+        "3": 12.65,    "4": 12.65,   "5": 12.65,  "6": null,
+        "7": null,     "8": null,    "9": null,    "10": null
+      }
+    },
+    "DIM TO WARM": {
+      "em_number": "84028",
+      "roll_length": "30m",
+      "max_run_m": 5,
+      "color_temp": "1800-3000K",
+      "lumens_per_inch": 37.34,
+      "lumens_per_ft": 448,
+      "lumens_per_m": 1470,
+      "efficiency_lm_w": 105,
+      "nominal_wm": 14,
+      "max_wm": 15.4,
+      "segment_mm": 71.42,
+      "pcb_width_mm": 12,
+      "l70_hours": 50000,
+      "cri": "90+",
+      "wm_curve": {
+        "0.25": 14, "0.5": 14, "1": 14, "2": 14,
+        "3": 14,    "4": 14,   "5": 14,  "6": null,
+        "7": null,  "8": null,  "9": null, "10": null
+      }
+    },
+    "COB LO DIM TO WARM": {
+      "em_number": "84029",
+      "roll_length": "30m",
+      "max_run_m": 5,
+      "color_temp": "1800-3000K",
+      "lumens_per_inch": 23.37,
+      "lumens_per_ft": 280,
+      "lumens_per_m": 920,
+      "efficiency_lm_w": 92,
+      "nominal_wm": 10,
+      "max_wm": 11,
+      "segment_mm": 55.55,
+      "pcb_width_mm": 10,
+      "l70_hours": 50000,
+      "cri": "90+",
+      "wm_curve": {
+        "0.25": 10, "0.5": 10, "1": 10, "2": 10,
+        "3": 10,    "4": 10,   "5": 10,  "6": null,
+        "7": null,  "8": null,  "9": null, "10": null
+      }
+    }
+  },
+
+  "drivers": {
+    "60470 - 75W MW": {
+      "dimming_style": "NON-DIMMING",
+      "mfr_pn": "LRS-75-24",
+      "power_factor": 0.6,
+      "efficiency": 0.9,
+      "power_w": 76.8,
+      "current_a": 3.2,
+      "input_lower_v": 85,
+      "input_separator": "-",
+      "input_upper_v": 264,
+      "em_use_note": "",
+      "retired": false,
+      "compatible_lines": {}
+    },
+    "60471 - 100W MW": {
+      "dimming_style": "NON-DIMMING",
+      "mfr_pn": "LRS-100-24",
+      "power_factor": 0.6,
+      "efficiency": 0.9,
+      "power_w": 108,
+      "current_a": 4.5,
+      "input_lower_v": 85,
+      "input_separator": "-",
+      "input_upper_v": 264,
+      "em_use_note": "",
+      "retired": false,
+      "compatible_lines": {}
+    },
+    "71225 - 96W ERP": {
+      "dimming_style": "NON-DIMMING",
+      "mfr_pn": "VLM100W-24",
+      "power_factor": 0.98,
+      "efficiency": 0.9,
+      "power_w": 96,
+      "current_a": 4,
+      "input_lower_v": 120,
+      "input_separator": "OR",
+      "input_upper_v": 277,
+      "em_use_note": "",
+      "retired": false,
+      "compatible_lines": {
+        "GEN4": true, "RAD4": true, "JS2_3_JS3": true, "JS2": true,
+        "LEGACY": true, "STANDARD": true, "V230": false, "V277": true,
+        "CCT": false, "DIM_TO_WARM": true
+      }
+    },
+    "73300 - 96W ERP (230V)": {
+      "dimming_style": "NON-DIMMING",
+      "mfr_pn": "VLM100E-24",
+      "power_factor": 0.98,
+      "efficiency": 0.91,
+      "power_w": 96,
+      "current_a": 4,
+      "input_lower_v": 220,
+      "input_separator": "-",
+      "input_upper_v": 240,
+      "em_use_note": "230V only",
+      "retired": false,
+      "compatible_lines": {
+        "GEN4": true, "RAD4": true, "JS2_3_JS3": true, "JS2": true,
+        "LEGACY": true, "STANDARD": false, "V230": true, "V277": false,
+        "CCT": false, "DIM_TO_WARM": true
+      }
+    },
+    "71225 - 96W ERP (AVA)": {
+      "dimming_style": "AVA",
+      "mfr_pn": "VLM100W-24",
+      "power_factor": 0.98,
+      "efficiency": 0.9,
+      "power_w": 96,
+      "current_a": 4,
+      "input_lower_v": 120,
+      "input_separator": "OR",
+      "input_upper_v": 277,
+      "em_use_note": "AVA Dimming - 120V or 277V",
+      "retired": false,
+      "compatible_lines": {
+        "GEN4": true, "RAD4": true, "JS2_3_JS3": true, "JS2": true,
+        "LEGACY": true, "STANDARD": true, "V230": false, "V277": true,
+        "CCT": true, "DIM_TO_WARM": false
+      }
+    },
+    "73300 - 96W ERP (230V AVA)": {
+      "dimming_style": "AVA",
+      "mfr_pn": "VLM100E-24",
+      "power_factor": 0.98,
+      "efficiency": 0.91,
+      "power_w": 96,
+      "current_a": 4,
+      "input_lower_v": 220,
+      "input_separator": "-",
+      "input_upper_v": 240,
+      "em_use_note": "AVA Dimming - 230V",
+      "retired": false,
+      "compatible_lines": {
+        "GEN4": true, "RAD4": true, "JS2_3_JS3": true, "JS2": true,
+        "LEGACY": true, "STANDARD": false, "V230": true, "V277": false,
+        "CCT": true, "DIM_TO_WARM": false
+      }
+    },
+    "73709 - SMARTS": {
+      "dimming_style": "D2",
+      "mfr_pn": "SMT-024-060VTHW",
+      "power_factor": 0.99,
+      "efficiency": 0.83,
+      "power_w": 60,
+      "current_a": 2.5,
+      "input_lower_v": 100,
+      "input_separator": "-",
+      "input_upper_v": 277,
+      "em_use_note": "(Almost) Retired D2",
+      "retired": false,
+      "compatible_lines": {
+        "GEN4": false, "RAD4": false, "JS2_3_JS3": true, "JS2": true,
+        "LEGACY": true, "STANDARD": true, "V230": true, "V277": true,
+        "CCT": false, "DIM_TO_WARM": true
+      }
+    },
+    "79314 - SMARTS": {
+      "dimming_style": "D2",
+      "mfr_pn": "SMT-024-096VTSP",
+      "power_factor": 0.99,
+      "efficiency": 0.84,
+      "power_w": 96,
+      "current_a": 4,
+      "input_lower_v": 100,
+      "input_separator": "-",
+      "input_upper_v": 277,
+      "em_use_note": "(Almost) Retired D2",
+      "retired": false,
+      "compatible_lines": {
+        "GEN4": true, "RAD4": true, "JS2_3_JS3": true, "JS2": true,
+        "LEGACY": true, "STANDARD": true, "V230": true, "V277": true,
+        "CCT": false, "DIM_TO_WARM": true
+      }
+    },
+    "84514 - 96W EUCHIPS (D2)": {
+      "dimming_style": "D2",
+      "mfr_pn": "MUP96AT-1W24V",
+      "power_factor": 0.95,
+      "efficiency": 0.87,
+      "power_w": 96,
+      "current_a": 4,
+      "input_lower_v": 120,
+      "input_separator": "-",
+      "input_upper_v": 277,
+      "em_use_note": "DM Driver - Standard D1+D2 Combo",
+      "retired": false,
+      "compatible_lines": {
+        "GEN4": true, "RAD4": false, "JS2_3_JS3": true, "JS2": true,
+        "LEGACY": true, "STANDARD": true, "V230": true, "V277": true,
+        "CCT": false, "DIM_TO_WARM": true
+      }
+    },
+    "84849 - 96W SCPOWER (D2)": {
+      "dimming_style": "D2",
+      "mfr_pn": "KVG-24096-DWS",
+      "power_factor": 0.99,
+      "efficiency": 0.85,
+      "power_w": 96,
+      "current_a": 4,
+      "input_lower_v": 100,
+      "input_separator": "-",
+      "input_upper_v": 277,
+      "em_use_note": "DM Driver - Slim Depth D1+D2 Combo for RAD",
+      "retired": false,
+      "compatible_lines": {
+        "GEN4": false, "RAD4": true, "JS2_3_JS3": false, "JS2": false,
+        "LEGACY": false, "STANDARD": true, "V230": true, "V277": true,
+        "CCT": false, "DIM_TO_WARM": true
+      }
+    },
+    "8???? - SCPOWER (D4)": {
+      "dimming_style": "D4",
+      "mfr_pn": "KV-24096-DP2A",
+      "power_factor": 0.95,
+      "efficiency": 0.9,
+      "power_w": 96,
+      "current_a": 4,
+      "input_lower_v": 100,
+      "input_separator": "-",
+      "input_upper_v": 277,
+      "em_use_note": "D4 Driver",
+      "retired": false,
+      "compatible_lines": {
+        "GEN4": true, "RAD4": true, "JS2_3_JS3": true, "JS2": true,
+        "LEGACY": true, "STANDARD": true, "V230": true, "V277": true,
+        "CCT": false, "DIM_TO_WARM": true
+      }
+    },
+    "84633 - SCPOWER (D4 DT8)": {
+      "dimming_style": "D4 DT8",
+      "mfr_pn": "KV-24096-2C-DP2A",
+      "power_factor": 0.95,
+      "efficiency": 0.9,
+      "power_w": 96,
+      "current_a": 4,
+      "input_lower_v": 100,
+      "input_separator": "-",
+      "input_upper_v": 277,
+      "em_use_note": "D4 Driver - 2 Channel DT8",
+      "retired": false,
+      "compatible_lines": {
+        "GEN4": true, "RAD4": true, "JS2_3_JS3": true, "JS2": true,
+        "LEGACY": true, "STANDARD": true, "V230": true, "V277": true,
+        "CCT": true, "DIM_TO_WARM": false
+      }
+    },
+    "84514 - 96W EUCHIPS (DM)": {
+      "dimming_style": "DM",
+      "mfr_pn": "MUP96AT-1W24V",
+      "power_factor": 0.95,
+      "efficiency": 0.87,
+      "power_w": 96,
+      "current_a": 4,
+      "input_lower_v": 120,
+      "input_separator": "-",
+      "input_upper_v": 277,
+      "em_use_note": "DM Driver - Standard D1+D2 Combo",
+      "retired": false,
+      "compatible_lines": {
+        "GEN4": true, "RAD4": false, "JS2_3_JS3": true, "JS2": true,
+        "LEGACY": true, "STANDARD": true, "V230": true, "V277": true,
+        "CCT": false, "DIM_TO_WARM": true
+      }
+    },
+    "84849 - 96W SCPOWER (DM)": {
+      "dimming_style": "DM",
+      "mfr_pn": "KVG-24096-DWS",
+      "power_factor": 0.99,
+      "efficiency": 0.85,
+      "power_w": 96,
+      "current_a": 4,
+      "input_lower_v": 100,
+      "input_separator": "-",
+      "input_upper_v": 277,
+      "em_use_note": "DM Driver - Slim Depth D1+D2 Combo for RAD",
+      "retired": false,
+      "compatible_lines": {
+        "GEN4": false, "RAD4": true, "JS2_3_JS3": false, "JS2": false,
+        "LEGACY": false, "STANDARD": true, "V230": true, "V277": true,
+        "CCT": false, "DIM_TO_WARM": true
+      }
+    },
+    "71225 - 96W ERP (KEEN)": {
+      "dimming_style": "KEEN",
+      "mfr_pn": "VLM100W-24",
+      "power_factor": 0.98,
+      "efficiency": 0.9,
+      "power_w": 96,
+      "current_a": 4,
+      "input_lower_v": 120,
+      "input_separator": "OR",
+      "input_upper_v": 277,
+      "em_use_note": "Touch Button Option - 120V or 277V",
+      "retired": false,
+      "compatible_lines": {
+        "GEN4": true, "RAD4": true, "JS2_3_JS3": true, "JS2": true,
+        "LEGACY": true, "STANDARD": true, "V230": false, "V277": true,
+        "CCT": false, "DIM_TO_WARM": true
+      }
+    },
+    "73300 - 96W ERP (230V KEEN)": {
+      "dimming_style": "KEEN",
+      "mfr_pn": "VLM100E-24",
+      "power_factor": 0.98,
+      "efficiency": 0.91,
+      "power_w": 96,
+      "current_a": 4,
+      "input_lower_v": 220,
+      "input_separator": "-",
+      "input_upper_v": 240,
+      "em_use_note": "Touch Button Option - 230V",
+      "retired": false,
+      "compatible_lines": {
+        "GEN4": true, "RAD4": true, "JS2_3_JS3": true, "JS2": true,
+        "LEGACY": true, "STANDARD": false, "V230": true, "V277": false,
+        "CCT": false, "DIM_TO_WARM": true
+      }
+    },
+    "71100 - HEP": {
+      "dimming_style": "Retired",
+      "mfr_pn": "BLD-096-V024-UNV-DNU",
+      "power_factor": 0.95,
+      "efficiency": 0.86,
+      "power_w": 96,
+      "current_a": 4,
+      "input_lower_v": 90,
+      "input_separator": "-",
+      "input_upper_v": 305,
+      "em_use_note": "Retired D1",
+      "retired": true,
+      "compatible_lines": {}
+    },
+    "71822 - HEP": {
+      "dimming_style": "Retired",
+      "mfr_pn": "BLD-096-V024-ANU",
+      "power_factor": 0.95,
+      "efficiency": 0.86,
+      "power_w": 96,
+      "current_a": 4,
+      "input_lower_v": 90,
+      "input_separator": "-",
+      "input_upper_v": 305,
+      "em_use_note": "Retired D4",
+      "retired": true,
+      "compatible_lines": {}
+    },
+    "81030 - LETARON": {
+      "dimming_style": "Retired",
+      "mfr_pn": "AED90-24VUL-3F",
+      "power_factor": 0.49,
+      "efficiency": 0.87,
+      "power_w": 90,
+      "current_a": 3.75,
+      "input_lower_v": 108,
+      "input_separator": "-",
+      "input_upper_v": 132,
+      "em_use_note": "Retired Budget Option",
+      "retired": true,
+      "compatible_lines": {}
+    }
+  },
+
+  "_constants": {
+    "driver_buffer_pct": 0.15,
+    "button_correction_styles": ["AVA", "KEEN"],
+    "_note": "button_correction_styles: dimming styles that add +1W button correction wattage (GN2)"
+  }
+}
